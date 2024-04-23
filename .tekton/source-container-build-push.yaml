@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   annotations:
-    build.appstudio.openshift.io/repo: https://github.com/redhat-appstudio/build-tasks-dockerfiles?rev={{revision}}
+    build.appstudio.openshift.io/repo: https://github.com/tisutisu/build-tasks-dockerfiles?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
@@ -14,7 +14,7 @@ metadata:
     appstudio.openshift.io/component: source-container-build
     pipelines.appstudio.openshift.io/type: build
   name: source-container-build-on-push
-  namespace: rhtap-build-tenant
+  namespace: susdas-tenant
 spec:
   params:
   - name: dockerfile
@@ -22,7 +22,7 @@ spec:
   - name: git-url
     value: '{{source_url}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtap-build-tenant/build-tasks-dockerfiles/source-container-build:{{revision}}
+    value: quay.io/redhat-user-workloads/susdas-tenant/build-tasks-dockerfiles/source-container-build:{{revision}}
   - name: path-context
     value: source-container-build
   - name: revision
