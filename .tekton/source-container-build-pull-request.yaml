@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   annotations:
-    build.appstudio.openshift.io/repo: https://github.com/redhat-appstudio/build-tasks-dockerfiles?rev={{revision}}
+    build.appstudio.openshift.io/repo: https://github.com/tisutisu/build-tasks-dockerfiles?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
@@ -16,7 +16,7 @@ metadata:
     appstudio.openshift.io/component: source-container-build
     pipelines.appstudio.openshift.io/type: build
   name: source-container-build-on-pull-request
-  namespace: rhtap-build-tenant
+  namespace: susdas-tenant
 spec:
   params:
   - name: dockerfile
@@ -26,7 +26,7 @@ spec:
   - name: image-expires-after
     value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtap-build-tenant/build-tasks-dockerfiles/source-container-build:on-pr-{{revision}}
+    value: quay.io/redhat-user-workloads/susdas-tenant/build-tasks-dockerfiles/source-container-build:on-pr-{{revision}}
   - name: path-context
     value: source-container-build
   - name: revision
